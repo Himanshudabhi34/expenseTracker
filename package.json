@@ -1,0 +1,29 @@
+{
+  "name": "daily-expense-tracker-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Daily Expense Tracker Agent - MERN stack app to track income, expenses, budgets, goals and ask an expense assistant questions.",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,magenta \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm --workspace server run dev",
+    "dev:client": "npm --workspace client run dev",
+    "start": "npm --workspace server run start",
+    "build": "npm --workspace client run build",
+    "seed": "npm --workspace server run seed",
+    "test": "npm --workspace server run test",
+    "test:client": "npm --workspace client run test",
+    "lint": "npm --workspace server run lint && npm --workspace client run lint",
+    "format": "prettier --write \"**/*.{js,jsx,json,css,md}\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "prettier": "^3.4.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
